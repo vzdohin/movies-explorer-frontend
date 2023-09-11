@@ -18,6 +18,7 @@ function Login() {
           className='form__input form__input_weight'
           id='email-input '
           type='email'
+          placeholder='Введите e-mail'
           required
         />
         {/* <span className='form__input-error'></span> */}
@@ -30,6 +31,8 @@ function Login() {
           id='password-input'
           type='password'
           minLength='6'
+          maxLength='40'
+          placeholder='Введите пароль'
           required
         />
         <span className='form__input-error'></span>

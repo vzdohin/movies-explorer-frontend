@@ -4,8 +4,8 @@ import '../Main/Main.css'
 
 function Techs() {
   return (
-    <div className='techs' id='techs'>
-      <div className='techs_width-container'>
+    <section className='techs main' id='techs'>
+      <div>
         <div className='main__title-container main__title-container_height'>
           <h2 className='main__title'>Технологии</h2>
         </div>
@@ -21,7 +21,7 @@ function Techs() {
         <li className="techs__list-item">Express.js</li>
         <li className="techs__list-item">mongoDB</li>
       </ul>
-    </div>
+    </section>
   )
 
 }

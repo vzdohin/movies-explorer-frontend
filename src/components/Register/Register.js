@@ -37,7 +37,7 @@ function Register() {
           id='name-input'
           type='text'
           minLength='2'
-          maxLength='40'
+          maxLength='30'
           required
 
         />
@@ -63,6 +63,7 @@ function Register() {
           id='password-input'
           type='password'
           minLength='6'
+          maxLength='40'
           required
         />
         <span className='form__input-error'>Что-то пошло не так...</span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './MoviesCardList.css'
-import CardImage from '../../images/card_img.svg'
+import CardImage from '../../images/card_image.png'
 import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
 
@@ -13,7 +13,7 @@ function MoviesCardList({ savedMovies, isLoading, searchedMoviesError }) {
     {isLoading && <Preloader />}
     {!isLoading}
       {pathname === '/saved-movies' ? (
-        <div className='cards__container'>
+        <section className='cards__container'>
           
           <article className='cards'>
             <MoviesCard 
@@ -27,9 +27,9 @@ function MoviesCardList({ savedMovies, isLoading, searchedMoviesError }) {
           <div className='cards__button-container'>
             {/* <button className='cards__button'>Ещё</button> */}
           </div>
-        </div>
+        </section>
       ) : (
-        <div className='cards__container'>
+        <section className='cards__container'>
 
           <article className='cards'>
             <MoviesCard />
@@ -50,9 +50,9 @@ function MoviesCardList({ savedMovies, isLoading, searchedMoviesError }) {
             <MoviesCard />
           </article>
           <div className='cards__button-container'>
-            <button className='cards__button'>Ещё</button>
+            <button className='cards__button' type='submit'>Ещё</button>
           </div>
-        </div>
+        </section>
       )}
     </>
   )

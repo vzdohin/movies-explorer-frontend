@@ -27,7 +27,7 @@
 
 }
 
-@media screen and (min-width: 1024px)and (max-width: 1280px) {
+@media screen and (min-width: 1024px)and (max-width: 1279px) {
   .main__title-container {
     max-width: 900px;
   }
@@ -45,12 +45,7 @@
   }
 
   .main__title {
-    color: #000;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.88px;
+
   }
 }
 
@@ -68,5 +63,6 @@
   .main__title {
     font-size: 18px;
     letter-spacing: -0.72px;
+    margin-bottom: 28px;
   }
 }

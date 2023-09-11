@@ -2,6 +2,7 @@
   max-width: 1280px;
   max-height: 700px;
   margin: auto;
+  background-color: #FFF;
 }
 
 .not-found__title {
@@ -38,6 +39,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  background-color: #FFF;
+}
+.not-found__link:hover {
+  opacity: .7;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px)and (max-width: 1023px) {

@@ -19,8 +19,7 @@ function PopupBurgerMenu({isOpen, isClose}) {
     <div className={`popup ${isOpen? `popup_opened` : ``}`}>
       <div className='popup__overlay'></div>
       <div className='popup__container'>
-        
-        <button className='popup__button-close' onClick={isClose}></button>
+        <button className='popup__button-close' type='button' onClick={isClose}></button>
         <section className='popup__links-container'>
           <NavLink
             to='/'

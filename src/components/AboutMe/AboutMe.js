@@ -5,7 +5,7 @@ import MyPhoto from '../../images/my-image.png'
 
 function AboutMe() {
   return (
-    <div className='about-me' id='about-me'>
+    <section className='about-me main' id='about-me'>
 
       <div className='main__title-container'>
         <h2 className='main__title'>Студент</h2>
@@ -22,9 +22,9 @@ function AboutMe() {
             Помимо этого играю на гитаре, хожу в походы, и провожу время за просмотром сериалов.</p>
           <a className='about-me__link' target='_blank' href='https://github.com/vzdohin' rel="noreferrer">Github</a>
         </div>
-        <img className='about-me__image'  src={MyPhoto} alt='моё фото'></img>
+        <img className='about-me__image' src={MyPhoto} alt='портрет автора в белой рубашке на белом фоне'></img>
       </div>
-    </div>
+    </section>
   )
 
 }

@@ -1,14 +1,8 @@
 .header {
   background: #FAFAFA;
   padding: 18px 70px;
-
   margin: auto;
-  
 }
-
-/* .header_color_grey {
-  background: #DDDEE3;
-} */
 
 .header__container {
   max-width: 1140px;
@@ -32,6 +26,7 @@
   gap: 30px;
   align-items: center;
 }
+
 .header__button-container_films {
   display: flex;
   gap: 30px;
@@ -58,12 +53,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .header__button:hover {
   opacity: 0.8;
-
 }
 
 .header__button_active {
@@ -79,7 +72,6 @@
   text-decoration: none;
   border: none;
   text-align: center;
-
 }
 
 .header__films-container {
@@ -96,14 +88,16 @@
   gap: 45px;
 }
 
-.header__button-container {}
-
 .header__button-menu {
   display: none;
   width: 44px;
   height: 44px;
   background: none;
   border: none;
+}
+.header__button-menu:hover {
+  opacity: .8;
+  cursor: pointer;
 }
 
 .header__button-films {
@@ -155,14 +149,16 @@
   max-width: 57px;
 }
 
-@media screen and (min-width: 768px)and (max-width: 1023px) {
+@media screen and (min-width: 601px)and (max-width: 800px) {
   .header {
     padding-left: 30px;
     padding-right: 30px;
   }
-  .header__button-container_films{
+
+  .header__button-container_films {
     display: none;
   }
+
   .header__button-account {
     display: none;
   }
@@ -173,20 +169,42 @@
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 600px) {
   .header {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 16px 14px 18px 15px;
   }
 
-  .header__button-container_films{
+  .header__button-container_films {
     display: none;
   }
+
   .header__button-account {
     display: none;
   }
+
   .header__button-menu {
     display: block;
+    width: 40px;
+    height: 43px;
+    object-fit: scale-down;
+  }
 
+  .header__button-menu_image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .header__button_active {
+    min-height: 26px;
+    min-width: 54px;
+
+  }
+
+  .header__button-container {
+    gap: 14px;
+  }
+
+  .header__button {
+    font-size: 10px;
   }
 }

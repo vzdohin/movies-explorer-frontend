@@ -31,48 +31,49 @@ function App() {
         <CurrentUserContext.Provider value={currentUser}>
 
           {/* <Main /> */}
-
-          <Routes>
-            <Route path='/'
-              element={<>
-                <Header
-                  loggedIn={isLoggedIn} />
-                <Main />
-                <Footer />
-              </>} />
-            <Route path='/signup'
-              element={<Register />} />
-            <Route path='/signin'
-              element={<Login />} />
-            <Route
-              path="movies"
-              element={
-                <ProtectedRoute
-                  element={Movies}
-                  loggedIn={isLoggedIn}
-                />
-              }
-            />
-            <Route
-              path='/saved-movies'
-              element={
-                < ProtectedRoute
-                  loggedIn={isLoggedIn}
-                  element={SavedMovies}
-                />}
-            />
-            <Route
-              path='/profile'
-              element={
-                < ProtectedRoute
-                  loggedIn={isLoggedIn}
-                  element={Profile}
-                />}
-            />
-            <Route path='*'
-              element={<NotFound />} />
-          </Routes>
-
+          <main>
+            <Routes>
+              <Route path='/'
+                element={
+                  <>
+                    <Header
+                      loggedIn={isLoggedIn} />
+                    <Main />
+                    <Footer />
+                  </>} />
+              <Route path='/signup'
+                element={<Register />} />
+              <Route path='/signin'
+                element={<Login />} />
+              <Route
+                path="movies"
+                element={
+                  <ProtectedRoute
+                    element={Movies}
+                    loggedIn={isLoggedIn}
+                  />
+                }
+              />
+              <Route
+                path='/saved-movies'
+                element={
+                  < ProtectedRoute
+                    loggedIn={isLoggedIn}
+                    element={SavedMovies}
+                  />}
+              />
+              <Route
+                path='/profile'
+                element={
+                  < ProtectedRoute
+                    loggedIn={isLoggedIn}
+                    element={Profile}
+                  />}
+              />
+              <Route path='*'
+                element={<NotFound />} />
+            </Routes>
+          </main>
         </CurrentUserContext.Provider>
       </div>
     </Router>

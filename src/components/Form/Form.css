@@ -70,6 +70,9 @@
   gap: 24px;
   outline: none;
 }
+.form__input:focus {
+  box-shadow: 0 0 5px rgba(52, 86, 243, 0.5);
+}
 
 .form__input_weight {
   font-weight: 500;
@@ -114,6 +117,7 @@
 
 .form__button:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .form__text {

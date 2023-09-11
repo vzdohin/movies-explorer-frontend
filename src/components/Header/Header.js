@@ -34,9 +34,9 @@ function Header({ loggedIn }) {
           <div className='header__films-container'>
             <section className='header__links'>
               <Link to='/'>
-                <img className='header__logo' src={Logo} alt='logo' ></img>
+                <img className='header__logo' src={Logo} alt='логотип' ></img>
               </Link>
-              <section className='header__button-container_gap header__button-container_films '>
+              <nav className='header__button-container header__button-container_gap header__button-container_films '>
                 <NavLink
                   to='/movies'
                   className='header__button-films'
@@ -51,15 +51,15 @@ function Header({ loggedIn }) {
                 >
                   Сохранённые фильмы
                 </NavLink>
-              </section>
+              </nav>
 
             </section>
             <Link to='/profile' className='header__button-account'>
               <img alt='кнопка перехода в аккаунт' src={ButtonProfile} className='header__button-image'></img>
               <p className='header__button-text'>Аккаунт</p>
             </Link>
-            <button className='header__button-menu' onClick={openMenu}>
-              <img src={Menu} alt='кнопка вызова меню' />
+            <button className='header__button-menu' type='button' onClick={openMenu}>
+              <img className='header__button-menu header__button-menu_image' src={Menu} alt='кнопка вызова меню' />
             </button>
           </div>
           <PopupBurgerMenu isOpen={isMenuOpen} isClose={closeMenu}/>

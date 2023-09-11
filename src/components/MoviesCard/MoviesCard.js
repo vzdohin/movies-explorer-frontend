@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState }from 'react';
 import './MoviesCard.css'
-import CardImage from '../../images/card_img.svg'
+import CardImage from '../../images/card_image.png'
 
 
-function MoviesCard({savedMovies}) {
+function MoviesCard({ savedMovies }) {
+  // временное решение уникальности подписи карточки
+  const [filteredMovies, setFilteredMovies] = useState([]);
   return (
     <div className='card'>
-      <img className='card__image' alt='постер подборки' src={CardImage}></img>
+      <img className='card__image' alt={`Изображение ${filteredMovies.name}`} src={CardImage}></img>
       <section className='card__container'>
-        <h4 className='card__title'>33 слова о дизайне</h4>
+        <h2 className='card__title'>33 слова о дизайне</h2>
         {savedMovies ? (
-          <button className='card__button-delete'></button>
+          <button className='card__button-delete' type='submit'></button>
         ) : (
 
-          <input type='checkbox' className='card__button'  ></input>
+          <input
+            type='checkbox'
+            className='card__button'
+            placeholder='none'
+          ></input>
         )}
       </section>
       <p className='card__duration'>1ч42м</p>

@@ -78,6 +78,8 @@
   }
   .about-me__image {
     /* margin-right: 50px; */
+    width: 255px;
+    height: 307px;
   }
   .about-me__title {
     /* margin-top: 40px; */
