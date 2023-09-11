@@ -9,7 +9,7 @@ import PopupBurgerMenu from '../PopupBurgerMenu/PopupBurgerMenu';
 function Header({ loggedIn }) {
   const location = useLocation();
   const [headerBackgroundColor, setHeaderBackgroundColor] = useState('');
-  const [headerLinkActive, setHeaderLinkActive] = useState('');
+  // const [headerLinkActive, setHeaderLinkActive] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   useEffect(() => {

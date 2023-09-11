@@ -5,7 +5,7 @@ import CardImage from '../../images/card_image.png'
 
 function MoviesCard({ savedMovies }) {
   // временное решение уникальности подписи карточки
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [filteredMovies] = useState([]);
   return (
     <div className='card'>
       <img className='card__image' alt={`Изображение ${filteredMovies.name}`} src={CardImage}></img>

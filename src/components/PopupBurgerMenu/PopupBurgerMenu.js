@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './PopupBurgerMenu.css';
 import ButtonProfile from '../../images/profile_button_pr.svg'
 

@@ -6,7 +6,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function Profile({ loggedIn }) {
   const currentUser = useContext(CurrentUserContext);
-  const [isEdit, setIsEdit] = useState(true)
+  const [isEdit] = useState(true)
   const navigate = useNavigate();
 
   const handlelogout = () => {

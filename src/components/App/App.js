@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header.js'
@@ -15,11 +15,11 @@ import { ProtectedRoute } from '../ProtectedRoute/ProtectedRoute';
 import './App.css';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [savedMovies, isSavedMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [searchedMoviesError, setSearchedMoviesError] = useState(false)
+  const [currentUser] = useState({});
+  const [isLoggedIn] = useState(true);
+  // const [savedMovies, isSavedMovies] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [searchedMoviesError, setSearchedMoviesError] = useState(false)
 
   // useEffect(()=> {
   //   setIsLoggedIn(true)

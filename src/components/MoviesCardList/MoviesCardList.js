@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './MoviesCardList.css'
-import CardImage from '../../images/card_image.png'
+// import CardImage from '../../images/card_image.png'
 import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
 
