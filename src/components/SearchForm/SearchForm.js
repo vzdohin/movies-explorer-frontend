@@ -7,17 +7,20 @@ function SearchForm() {
   return (
     <div className='search-form'>
       <section className='search-form__label'>
-        <div className='search-form__container'>
+        <form className='search-form__container'>
           <section className='search-form__section'>
             {/* <label className='search-form__label'></label> */}
             <img className='search-form__img' src={Search} alt='изображение лупы'></img>
-            <input className='search-form__input' placeholder='Фильм' />
-            <button className='search-form__button'></button>
-            <div className='search-form__border'></div>
+            <input 
+            className='search-form__input' 
+            placeholder='Фильм' 
+            required
+            type='text'/>
+            <button className='search-form__button' type='submit'></button>
+            {/* <div className='search-form__border'></div> */}
           </section>
           <FilterCheckbox />
-        </div>
-
+        </form>
       </section>
     </div>
   )
