@@ -39,15 +39,15 @@ function Header({ loggedIn }) {
               <nav className='header__button-container header__button-container_gap header__button-container_films '>
                 <NavLink
                   to='/movies'
-                  className='header__button-films'
-                  activeClassName='active'
+                  className={({ isActive }) => isActive? 'header__button-films active': 'header__button-films'}
+                  // activeClassName='active'
                 >
                   Фильмы
                 </NavLink>
                 <NavLink
                   to='/saved-movies'
-                  className='header__button-films'
-                  activeClassName='active'
+                  className={({ isActive }) => isActive? 'header__button-films active': 'header__button-films'}
+                  // activeClassName='active'
                 >
                   Сохранённые фильмы
                 </NavLink>

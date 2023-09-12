@@ -4,7 +4,7 @@ import './PopupBurgerMenu.css';
 import ButtonProfile from '../../images/profile_button_pr.svg'
 
 
-function PopupBurgerMenu({isOpen, isClose}) {
+function PopupBurgerMenu({ isOpen, isClose }) {
   // const location = useLocation();
   // const [headerBackgroundColor, setHeaderBackgroundColor] = useState('');
   // const [headerLinkActive, setHeaderLinkActive] = useState('');
@@ -16,29 +16,29 @@ function PopupBurgerMenu({isOpen, isClose}) {
   //   }
   // }, [location.pathname]);
   return (
-    <div className={`popup ${isOpen? `popup_opened` : ``}`}>
+    <div className={`popup ${isOpen ? `popup_opened` : ``}`}>
       <div className='popup__overlay'></div>
       <div className='popup__container'>
         <button className='popup__button-close' type='button' onClick={isClose}></button>
         <section className='popup__links-container'>
           <NavLink
             to='/'
-            className='popup__link'
-            activeClassName='active'
+            className={({ isActive }) => isActive ? 'popup__link active' : 'popup__link'}
+          // activeClassName='active'
           >
             Главная
           </NavLink>
           <NavLink
             to='/movies'
-            className='popup__link'
-            activeClassName='active'
+            className={({ isActive }) => isActive ? 'popup__link active' : 'popup__link'}
+          // activeClassName='active'
           >
             Фильмы
           </NavLink>
           <NavLink
             to='/saved-movies'
-            className='popup__link'
-            activeClassName='active'
+            className={({ isActive }) => isActive ? 'popup__link active' : 'popup__link'}
+          // activeClassName='active'
           >
             Сохранённые фильмы
           </NavLink>
