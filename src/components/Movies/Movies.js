@@ -7,9 +7,9 @@ import SearchForm from '../SearchForm/SearchForm';
 
 
 function Movies({loggedIn}) {
-  const [savedMovies, isSavedMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [searchedMoviesError, setSearchedMoviesError] = useState(false)
+  const [savedMovies] = useState([]);
+  const [isLoading] = useState(false);
+  const [searchedMoviesError] = useState(false)
   return (
     <section className='movies'>
       <Header
