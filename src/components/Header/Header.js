@@ -11,7 +11,7 @@ function Header({ loggedIn }) {
   const [headerBackgroundColor, setHeaderBackgroundColor] = useState('');
   // const [headerLinkActive, setHeaderLinkActive] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   useEffect(() => {
     if (location.pathname === '/') {
       setHeaderBackgroundColor('#DDDEE3');
@@ -32,28 +32,33 @@ function Header({ loggedIn }) {
       {loggedIn ? (
         <header className='header' style={{ backgroundColor: headerBackgroundColor }} >
           <div className='header__films-container'>
-            <section className='header__links'>
+            <div className='header__links'>
               <Link to='/'>
                 <img className='header__logo' src={Logo} alt='логотип' ></img>
               </Link>
               <nav className='header__button-container header__button-container_gap header__button-container_films '>
-                <NavLink
-                  to='/movies'
-                  className={({ isActive }) => isActive? 'header__button-films active': 'header__button-films'}
-                  // activeClassName='active'
-                >
-                  Фильмы
-                </NavLink>
-                <NavLink
-                  to='/saved-movies'
-                  className={({ isActive }) => isActive? 'header__button-films active': 'header__button-films'}
-                  // activeClassName='active'
-                >
-                  Сохранённые фильмы
-                </NavLink>
+                <ul className='header__button-films-list'>
+                  <li className='header__button-item'>
+                    <NavLink
+                      to='/movies'
+                      className={({ isActive }) => isActive ? 'header__button-films active' : 'header__button-films'}
+                    // activeClassName='active'
+                    >
+                      Фильмы
+                    </NavLink>
+                  </li>
+                  <li className='header__button-item'>
+                    <NavLink
+                      to='/saved-movies'
+                      className={({ isActive }) => isActive ? 'header__button-films active' : 'header__button-films'}
+                    // activeClassName='active'
+                    >
+                      Сохранённые фильмы
+                    </NavLink></li>
+                </ul>
               </nav>
 
-            </section>
+            </div>
             <Link to='/profile' className='header__button-account'>
               <img alt='кнопка перехода в аккаунт' src={ButtonProfile} className='header__button-image'></img>
               <p className='header__button-text'>Аккаунт</p>
@@ -62,13 +67,13 @@ function Header({ loggedIn }) {
               <img className='header__button-menu header__button-menu_image' src={Menu} alt='кнопка вызова меню' />
             </button>
           </div>
-          <PopupBurgerMenu isOpen={isMenuOpen} isClose={closeMenu}/>
+          <PopupBurgerMenu isOpen={isMenuOpen} isClose={closeMenu} />
         </header>
       ) : (
         <header className='header ' style={{ backgroundColor: headerBackgroundColor }}>
           <div className='header__container'>
             <Link to='/'>
-              <img className='header__logo' src={Logo} alt='logo' ></img>
+              <img className='header__logo' src={Logo} alt='логотип' ></img>
             </Link>
             <section className='header__button-container'>
               <Link to='signup' className='header__button'>Регистрация</Link>

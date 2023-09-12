@@ -4,7 +4,7 @@ import './Promo.css'
 
 function Promo() {
   return (
-    <section className='promo'>
+    <section  className='promo'>
       <div className='promo__container'>
         <img className='promo__logo' src={Promo_logo} alt='логотип яндекс практикума' />
         <h1 className='promo__title'>

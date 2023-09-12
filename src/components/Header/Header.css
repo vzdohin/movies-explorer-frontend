@@ -26,7 +26,16 @@
   gap: 30px;
   align-items: center;
 }
-
+.header__button-films-list{
+margin: 0;
+padding: 0;
+display: flex;
+gap: 18px;
+align-items: center;
+}
+.header__button-item{
+  list-style: none;
+}
 .header__button-container_films {
   display: flex;
   gap: 30px;

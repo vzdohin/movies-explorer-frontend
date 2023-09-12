@@ -25,13 +25,10 @@ function App() {
   //   setIsLoggedIn(true)
   // })
   return (
-
-    <Router>
+    <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
-        <CurrentUserContext.Provider value={currentUser}>
-
-          {/* <Main /> */}
-          <main>
+        <div className='page__content'>
+          <Router>
             <Routes>
               <Route path='/'
                 element={
@@ -73,11 +70,10 @@ function App() {
               <Route path='*'
                 element={<NotFound />} />
             </Routes>
-          </main>
-        </CurrentUserContext.Provider>
+          </Router>
+        </div>
       </div>
-    </Router>
-
+    </CurrentUserContext.Provider>
   )
 }
 

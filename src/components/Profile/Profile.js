@@ -16,7 +16,7 @@ function Profile({ loggedIn }) {
   return (
     <>
       <Header loggedIn={loggedIn} />
-      <section className='profile'>
+      <main className='profile'>
         <h1 className='profile__title'>Привет, {currentUser.name}!</h1>
         <form className='profile__form'>
           <label className='profile__label'>
@@ -30,7 +30,7 @@ function Profile({ loggedIn }) {
               required />
             <span className='profile__input-error'></span>
           </label>
-          <div className='profile__border-input'></div>
+          {/* <div className='profile__border-input'></div> */}
           <label className='profile__label'>
             E-mail
             <input
@@ -50,7 +50,7 @@ function Profile({ loggedIn }) {
           <button className='profile__save-button' type='submit'>Сохранить</button>
         )}
 
-      </section>
+      </main>
     </>
   );
 }

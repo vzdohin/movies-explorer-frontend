@@ -1,13 +1,12 @@
 .techs {
-  max-width: 1280px;
-  margin: auto;
   background: #F5F5F5;
 }
 
-.techs_width-container {
+.techs__container {
   max-width: 1280px;
   margin: auto;
 }
+
 
 .techs__title {
   margin: 90px auto auto auto;

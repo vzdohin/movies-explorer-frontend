@@ -6,17 +6,19 @@ import Footer from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm';
 
 
-function SavedMovies({loggedIn, savedMovies}) {
+function SavedMovies({ loggedIn, savedMovies }) {
   return (
-    <section className='saved-movies'>
+    <>
       <Header
         loggedIn={loggedIn} />
-      <SearchForm />
-      <MoviesCardList 
-        savedMovies={savedMovies}
-      />
+      <main className='saved-movies'>
+        <SearchForm />
+        <MoviesCardList
+          savedMovies={savedMovies}
+        />
+      </main>
       <Footer />
-    </section>
+    </>
   )
 
 }

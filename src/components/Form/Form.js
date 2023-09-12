@@ -18,7 +18,7 @@ function Form(props) {
     //     <button type="button" className="popup__close-button" onClick={props.onClose}></button>
     //   </div>
     // </div>
-    <section className='form'>
+    <main  className='form'>
       <div className='form__container'>
         <Link to='/'>
           <img className='form__logo' alt='логотип' src={Logo} />
@@ -32,7 +32,7 @@ function Form(props) {
           <Link to={props.link} className='form__link'>{props.linkText}</Link>
         </p>
       </div>
-    </section>
+    </main>
   )
 }
 

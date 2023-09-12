@@ -7,7 +7,7 @@ function MoviesCard({ savedMovies }) {
   // временное решение уникальности подписи карточки
   const [filteredMovies] = useState([]);
   return (
-    <div className='card'>
+    <li className='card'>
       <img className='card__image' alt={`Изображение ${filteredMovies.name}`} src={CardImage}></img>
       <section className='card__container'>
         <h2 className='card__title'>33 слова о дизайне</h2>
@@ -23,7 +23,7 @@ function MoviesCard({ savedMovies }) {
         )}
       </section>
       <p className='card__duration'>1ч42м</p>
-    </div>
+    </li>
   )
 
 }

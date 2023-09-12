@@ -15,7 +15,7 @@ function MoviesCardList({ savedMovies, isLoading, searchedMoviesError }) {
       {pathname === '/saved-movies' ? (
         <section className='cards__container'>
           
-          <article className='cards'>
+          <ul className='cards'>
             <MoviesCard 
             savedMovies={savedMovies}/>
             <MoviesCard 
@@ -23,7 +23,7 @@ function MoviesCardList({ savedMovies, isLoading, searchedMoviesError }) {
             <MoviesCard 
             savedMovies={savedMovies}/>
 
-          </article>
+          </ul>
           <div className='cards__button-container'>
             {/* <button className='cards__button'>Ещё</button> */}
           </div>
@@ -31,7 +31,7 @@ function MoviesCardList({ savedMovies, isLoading, searchedMoviesError }) {
       ) : (
         <section className='cards__container'>
 
-          <article className='cards'>
+          <ul className='cards'>
             <MoviesCard />
             <MoviesCard />
             <MoviesCard />
@@ -48,7 +48,7 @@ function MoviesCardList({ savedMovies, isLoading, searchedMoviesError }) {
             <MoviesCard />
             <MoviesCard />
             <MoviesCard />
-          </article>
+          </ul>
           <div className='cards__button-container'>
             <button className='cards__button' type='submit'>Ещё</button>
           </div>

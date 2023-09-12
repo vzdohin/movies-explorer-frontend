@@ -13,6 +13,7 @@
   padding-bottom: 69px;
 }
 
+
 .search-form__container {
   width: 100%;
   /* margin: auto; */
@@ -41,6 +42,9 @@
   height: 70px;
   border: none;
   outline: none;
+}
+.search-form__input:focus {
+  box-shadow: 0 0 5px rgba(52, 86, 243, .1);
 }
 
 .search-form__input::placeholder {
@@ -78,6 +82,7 @@
 
 .search-form__button:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1024px)and (max-width: 1279px) {
