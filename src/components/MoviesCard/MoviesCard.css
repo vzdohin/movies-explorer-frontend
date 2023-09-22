@@ -11,6 +11,9 @@
   margin-bottom: -4px;
   object-fit: cover;
   width: 100%;
+  height: 150px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .card__container {
@@ -19,7 +22,7 @@
   align-items: center;
   margin: 0 12px 0 12px;
   max-height: 28px;
-  
+
 }
 
 .card__title {
@@ -30,6 +33,9 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__button {
@@ -44,6 +50,7 @@
   background-size: 100%;
   object-fit: cover;
 }
+
 .card__button:hover {
   opacity: .8;
   cursor: pointer;
@@ -61,6 +68,7 @@
   border: none;
   margin: 18px 0 0 0;
 }
+
 .card__button-delete:hover {
   opacity: .8;
 }

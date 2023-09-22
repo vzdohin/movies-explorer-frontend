@@ -1,31 +1,64 @@
-import React, { useState }from 'react';
+import React from 'react';
 import './MoviesCard.css'
-import CardImage from '../../images/card_image.png'
+import { useLocation } from 'react-router-dom';
 
 
-function MoviesCard({ savedMovies }) {
-  // временное решение уникальности подписи карточки
-  const [filteredMovies] = useState([]);
+function MoviesCard({
+  movie,
+  savedMovies,
+  onMovieLike,
+  onMovieDeleteLike
+}) {
+  const { pathname } = useLocation();
+
+  function convertorDuration(dur) {
+    const hours = Math.floor(dur / 60);
+    const min = dur % 60;
+    return `${hours}ч${min}м`
+  }
+  const isSaved = savedMovies.find(
+    (id) => id.movieId === movie.id
+  ) || false;
+  function handleClick() {
+    onMovieLike(movie);
+  }
+
+  function handleDeleteCard() {
+    onMovieDeleteLike(movie);
+  }
   return (
     <li className='card'>
-      <img className='card__image' alt={`Изображение ${filteredMovies.name}`} src={CardImage}></img>
+      <a href={movie.trailerLink} target='_blank' rel="noreferrer">
+        <img
+          className='card__image'
+          alt={`Изображение ${movie.nameRU}`}
+          src={`${movie.image.url === undefined
+            ? movie.image
+            : 'https://api.nomoreparties.co' + movie.image.url
+            }`}></img>
+      </a>
       <section className='card__container'>
-        <h2 className='card__title'>33 слова о дизайне</h2>
-        {savedMovies ? (
-          <button className='card__button-delete' type='submit'></button>
-        ) : (
-
+        <h2 className='card__title'>{movie.nameRU}</h2>
+        {pathname === '/movies' && (
           <input
             type='checkbox'
             className='card__button'
+            checked={isSaved}
             placeholder='none'
+            onChange={handleClick}
           ></input>
         )}
+        {pathname === '/saved-movies' && (
+          <button
+            className='card__button-delete'
+            type='submit'
+            onClick={handleDeleteCard}
+          ></button>
+        )}
       </section>
-      <p className='card__duration'>1ч42м</p>
+      <p className='card__duration'>{convertorDuration(movie.duration)}</p>
     </li>
   )
-
 }
 
 export default MoviesCard;

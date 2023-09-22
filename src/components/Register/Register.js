@@ -1,25 +1,30 @@
 import React from 'react';
-// import { useForm } from "react-hook-form";
-import '../Form/Form.css';
 import Form from '../Form/Form.js';
+import useFormValidation from '../../hooks/useFormValidation';
 
-function Register() {
-  // const [userData, setUserData] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  // });
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setUserData({
-  //     ...userData,
-  //     [name]: value,
-  //   });
-  // };
-  // const {
-  //   // register,
-  //   // handleSubmit,
-  //   formState: { errors } } = useForm({ mode: 'onChange' });
+function Register({ onRegister }) {
+  const initialValues = {
+    name: '',
+    email: '',
+    password: '',
+  };
+
+  const {
+    formData,
+    errors,
+    isValid,
+    handleChange,
+  } = useFormValidation(initialValues);
+  const [serverRegError, setServerRegError] = React.useState('');
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!isValid) return;
+    onRegister(formData.name, formData.email, formData.password)
+    .catch(err => {
+      console.log("Server error during registration:", err.message);
+      setServerRegError(err.message);
+  });
+  }
 
   return (
     <Form
@@ -28,6 +33,9 @@ function Register() {
       question='Уже зарегистрированы?'
       linkText='Войти'
       link='/signin'
+      handleSubmit={handleSubmit}
+      isValid={isValid}
+      serverRegError={serverRegError}
     >
       <label className='form__field'>
         Имя
@@ -39,23 +47,25 @@ function Register() {
           minLength='2'
           maxLength='30'
           required
-
+          value={formData.name || ''}
+          onChange={handleChange}
         />
-{/* 
-        <span className='form__input-error'></span> */}
+        <span className='form__input-error'>{errors.name}</span>
       </label>
       <label className='form__field'>
         E-mail
         <input
           name='email'
           className='form__input form__input_weight'
-          id='email-input '
+          id='email-input'
           type='email'
           required
+          value={formData.email || ''}
+          onChange={handleChange}
         />
-        {/* <span className='form__input-error'></span> */}
+        <span className='form__input-error'>{errors.email}</span>
       </label>
-      <label className='form__field form__field_margin-bot_min '>
+      <label className='form__field form__field_margin-bot_min'>
         Пароль
         <input
           name='password'
@@ -65,8 +75,10 @@ function Register() {
           minLength='6'
           maxLength='40'
           required
+          value={formData.password || ''}
+          onChange={handleChange}
         />
-        <span className='form__input-error'>Что-то пошло не так...</span>
+        <span className='form__input-error'>{errors.password}</span>
       </label>
     </Form>
   );

@@ -1,4 +1,15 @@
-.movies{
+.movies {
   max-width: 1280px;
   margin: auto;
+}
+
+.movies__text {
+  margin: 100px 0 0 0;
+  padding: 0;
+  text-align: center;
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
 }

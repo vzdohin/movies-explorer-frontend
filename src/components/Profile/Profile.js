@@ -1,24 +1,48 @@
-import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import '../Profile/Profile.css';
 import Header from '../Header/Header.js'
-import CurrentUserContext from '../../contexts/CurrentUserContext';
+import InfoTooltip from '../InfoTooltip/InfoTooltip';
 
-function Profile({ loggedIn }) {
-  const currentUser = useContext(CurrentUserContext);
-  const [isEdit] = useState(true)
-  const navigate = useNavigate();
+function Profile({ loggedIn,
+  currentUser,
+  handlelogout,
+  onUpdateUser,
+  onClose,
+  isOpen, isSuccess
+}) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [isEdit, setIsEdit] = useState(false)
 
-  const handlelogout = () => {
-    // выход
-    navigate('/')
+  useEffect(() => {
+    setName(currentUser.name);
+    setEmail(currentUser.email);
+  }, [currentUser])
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    onUpdateUser({ name: name, email: email });
+    setIsEdit(false);
   }
+  function handleSetName(e) {
+
+    setName(e.target.value);
+    const isEdited = e.target.value !== currentUser.name || email !== currentUser.email;
+    setIsEdit(isEdited);
+  }
+  function handleSetEmail(e) {
+    setEmail(e.target.value);
+    const isEdited = name !== currentUser.name || e.target.value !== currentUser.email;
+    setIsEdit(isEdited);
+  }
+
   return (
     <>
       <Header loggedIn={loggedIn} />
       <main className='profile'>
         <h1 className='profile__title'>Привет, {currentUser.name}!</h1>
-        <form className='profile__form'>
+        <form className='profile__form' onSubmit={handleSubmit} noValidate>
           <label className='profile__label'>
             Имя
             <input
@@ -27,29 +51,38 @@ function Profile({ loggedIn }) {
               type='text'
               minLength='2'
               maxLength='30'
-              required />
+              required
+              value={name || ''}
+              onChange={handleSetName} />
             <span className='profile__input-error'></span>
           </label>
-          {/* <div className='profile__border-input'></div> */}
           <label className='profile__label'>
             E-mail
             <input
               className='profile__input'
               placeholder='Введите e-mail'
               type='email'
-              required />
+              required
+              value={email || ''}
+              onChange={handleSetEmail} />
             <span className='profile__input-error'></span>
           </label>
+          {!isEdit ? (
+            <>
+              <button className='profile__edit-button' type='button' disabled>Редактировать</button>
+              <button
+                className='profile__logout-button'
+                type='button'
+                onClick={handlelogout}>Выйти из аккаунта</button>
+            </>
+          ) : (
+            <button className='profile__save-button' type='submit' disabled={!isEdit}>Сохранить</button>
+          )}
         </form>
-        {isEdit ? (
-          <>
-            <button className='profile__edit-button' type='button'>Редактировать</button>
-            <button className='profile__logout-button' type='button' onClick={handlelogout}>Выйти из аккаунта</button>
-          </>
-        ) : (
-          <button className='profile__save-button' type='submit'>Сохранить</button>
-        )}
-
+        <InfoTooltip
+          isOpen={isOpen}
+          isSuccess={isSuccess}
+          onClose={onClose} />
       </main>
     </>
   );
