@@ -14,13 +14,15 @@ function MoviesCardList({
 }) {
   const { pathname } = useLocation();
   const [numberOfMovies, setNumberOfMovies] = React.useState(16);
-  const windowWidth = window.innerWidth;
+  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+
   useEffect(() => {
     let timer;
     const handleResize = () => {
       clearTimeout(timer);
       timer = setTimeout(() => {
       const currentWindowWidth = window.innerWidth;
+      setWindowWidth(currentWindowWidth);
       let visibleMovies;
       if (currentWindowWidth > 1280) {
         visibleMovies = 16;
