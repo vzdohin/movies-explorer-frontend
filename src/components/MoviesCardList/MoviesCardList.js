@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
-import { windowWidth } from '../../utils/constants'
+// import { windowWidth } from '../../utils/constants'
 
 
 function MoviesCardList({
@@ -14,6 +14,7 @@ function MoviesCardList({
 }) {
   const { pathname } = useLocation();
   const [numberOfMovies, setNumberOfMovies] = React.useState(16);
+  const windowWidth = window.innerWidth;
   useEffect(() => {
     let timer;
     const handleResize = () => {

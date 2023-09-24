@@ -6,7 +6,7 @@ const MOVIE_URL = 'https://api.nomoreparties.co'
 
 
 
-const windowWidth = window.innerWidth;
+
 
 function convertorDuration(dur) {
   const hours = Math.floor(dur / 60);
@@ -18,5 +18,4 @@ export {
   BEATFILM_MOVIE_URL,
   MOVIE_URL,
   convertorDuration,
-  windowWidth
 };
