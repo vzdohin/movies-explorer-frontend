@@ -16,7 +16,7 @@ function Form(props) {
         <form className='form__form' onSubmit={props.handleSubmit} noValidate>
           {props.children}
           <span className='form__server-error'>{pathname.pathname  === '/signin' ? props.serverError : props.serverRegError}</span>
-          <button type='submit' className='form__button'>
+          <button type='submit' className='form__button' disabled={!props.isValid}>
             {props.button}
           </button>
         </form>

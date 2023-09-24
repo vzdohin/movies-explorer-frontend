@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header.js'
 import Main from '../Main/Main.js'
@@ -28,6 +28,7 @@ function App() {
   const [isRegistrationSuccess, setRegistrationSuccess] = useState(null)
   const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
   const [searchedMoviesError] = useState(false)
+  const [isAuthChecked, setAuthChecked] = useState(false);
 
   const navigate = useNavigate();
 
@@ -54,14 +55,17 @@ function App() {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true)
-            navigate('/', { replace: true })
           } else { setIsLoggedIn(false) }
         })
         .catch(err => {
           console.error(err);
         })
+        .finally(() => {
+          setAuthChecked(true);
+        });
     }
   }, [])
+
 
   function handleRegistration(name, email, password) {
     return api.registr(name, email, password)
@@ -182,13 +186,15 @@ function App() {
                   <Footer />
                 </>} />
             <Route path='/signup'
-              element={<Register
-                onRegister={handleRegistration}
-              />} />
+              element={isLoggedIn
+                ? <Navigate to='/movies' replace />
+                : <Register onRegister={handleRegistration} />} />
+
             <Route path='/signin'
-              element={<Login
-                onAuthorize={handleAuthorization}
-              />} />
+              element={isLoggedIn
+                ? <Navigate to='/movies' replace />
+                : <Login onAuthorize={handleAuthorization} />} />
+
             <Route
               path="movies"
               element={
@@ -200,6 +206,7 @@ function App() {
                   onFilteredMovies={setFilteredMovies}
                   filteredMovies={filteredMovies}
                   onMovieLike={handleSaveCard}
+                  isAuthChecked={isAuthChecked}
                 />
               }
             />
@@ -215,13 +222,13 @@ function App() {
                   setAllSavedMovies={setAllSavedMovies}
                   filteredSavedMovies={filteredMovies}
                   onFilteredSavedMovies={setFilteredMovies}
+                  isAuthChecked={isAuthChecked}
                 />}
             />
             <Route
               path='/profile'
               element={
                 < ProtectedRoute
-                  currentUser={currentUser}
                   loggedIn={isLoggedIn}
                   element={Profile}
                   handlelogout={handleLogout}
@@ -229,6 +236,7 @@ function App() {
                   onClose={closePopup}
                   isOpen={isSuccessPopupOpen}
                   isSuccess={isRegistrationSuccess}
+                  isAuthChecked={isAuthChecked}
                 />}
             />
             <Route path='*'

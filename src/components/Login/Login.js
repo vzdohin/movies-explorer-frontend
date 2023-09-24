@@ -36,6 +36,7 @@ function Login({ onAuthorize }) {
       link='/signup'
       handleSubmit={handleSubmit}
       serverError={serverError}
+      isValid={isValid}
     >
       <label className='form__field'>
         E-mail

@@ -1,7 +1,7 @@
 import React from 'react';
 import './MoviesCard.css'
 import { useLocation } from 'react-router-dom';
-
+import { convertorDuration } from '../../utils/constants'
 
 function MoviesCard({
   movie,
@@ -11,11 +11,6 @@ function MoviesCard({
 }) {
   const { pathname } = useLocation();
 
-  function convertorDuration(dur) {
-    const hours = Math.floor(dur / 60);
-    const min = dur % 60;
-    return `${hours}ч${min}м`
-  }
   const isSaved = savedMovies.find(
     (id) => id.movieId === movie.id
   ) || false;

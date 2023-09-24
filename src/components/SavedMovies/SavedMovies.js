@@ -15,8 +15,8 @@ function SavedMovies({
   onFilteredSavedMovies,
   filteredSavedMovies,
 }) {
-  const [querySavedMovie, setQuerySavedMovie] = useState(localStorage.getItem('querySaved') || '');
-  const [isShortSavedMovie, setIsShortSavedMovie] = useState(JSON.parse(localStorage.getItem('isShortSaved')) || false);
+  const [querySavedMovie, setQuerySavedMovie] = useState('');
+  const [isShortSavedMovie, setIsShortSavedMovie] = useState(false);
 
   useEffect(() => {
     let filteredMovies = [...savedMovies];
@@ -28,14 +28,6 @@ function SavedMovies({
     }
     onFilteredSavedMovies(filteredMovies);
   }, [savedMovies, querySavedMovie, isShortSavedMovie, onFilteredSavedMovies]);
-
-  useEffect(() => {
-    localStorage.setItem('querySaved', querySavedMovie);
-  }, [querySavedMovie]);
-
-  useEffect(() => {
-    localStorage.setItem('isShortSaved', isShortSavedMovie);
-  }, [isShortSavedMovie]);
 
   return (
     <>

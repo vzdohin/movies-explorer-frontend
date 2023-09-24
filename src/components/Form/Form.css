@@ -131,7 +131,10 @@
   opacity: 0.8;
   cursor: pointer;
 }
-
+.form__button:disabled {
+  background-color: #cccccc; 
+  cursor: not-allowed;
+}
 .form__text {
   margin: 16px 0 0 0;
   padding-bottom: 70px;

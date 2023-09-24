@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import '../Profile/Profile.css';
 import Header from '../Header/Header.js'
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function Profile({ loggedIn,
-  currentUser,
   handlelogout,
   onUpdateUser,
   onClose,
   isOpen, isSuccess
 }) {
+  const currentUser = useContext(CurrentUserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isEdit, setIsEdit] = useState(false)

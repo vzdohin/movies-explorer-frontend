@@ -12,6 +12,8 @@ function SearchForm({
 }) {
   const { pathname } = useLocation();
   const [localQuery, setLocalQuery] = useState('');
+  const [searchError, setSearchError] = useState(null);
+
 
   const storageKey = pathname === '/movies'
     ? `moviesSearchFormQuery`
@@ -26,8 +28,17 @@ function SearchForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!localQuery.trim()) {
+      setSearchError('Нужно ввести ключевое слово');
+      return;
+    } else {
+      setSearchError(null);
+    }
     setQuery(localQuery);
-    localStorage.setItem(storageKey, localQuery);
+    if (pathname === '/movies') {
+      localStorage.setItem(storageKey, localQuery);
+    }
   };
   return (
     <div className='search-form'>
@@ -40,13 +51,14 @@ function SearchForm({
           <section className='search-form__section'>
             <img className='search-form__img' src={Search} alt='изображение лупы'></img>
             <input
-              className='search-form__input'
-              placeholder='Фильм'
+              className={`search-form__input ${searchError ? 'error' : ''}`}
+              placeholder={searchError ? searchError : 'Фильм'}
               required
               type='text'
               value={localQuery}
               onChange={e => setLocalQuery(e.target.value)}
             />
+            {/* {searchError && <span className="search-form__error">{searchError}</span>} */}
             <button className='search-form__button' type='submit'></button>
           </section>
           <FilterCheckbox
