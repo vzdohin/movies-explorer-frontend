@@ -9,7 +9,6 @@ import PopupBurgerMenu from '../PopupBurgerMenu/PopupBurgerMenu';
 function Header({ loggedIn }) {
   const location = useLocation();
   const [headerBackgroundColor, setHeaderBackgroundColor] = useState('');
-  // const [headerLinkActive, setHeaderLinkActive] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -42,7 +41,6 @@ function Header({ loggedIn }) {
                     <NavLink
                       to='/movies'
                       className={({ isActive }) => isActive ? 'header__button-films active' : 'header__button-films'}
-                    // activeClassName='active'
                     >
                       Фильмы
                     </NavLink>
@@ -51,7 +49,6 @@ function Header({ loggedIn }) {
                     <NavLink
                       to='/saved-movies'
                       className={({ isActive }) => isActive ? 'header__button-films active' : 'header__button-films'}
-                    // activeClassName='active'
                     >
                       Сохранённые фильмы
                     </NavLink></li>

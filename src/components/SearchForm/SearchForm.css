@@ -56,7 +56,17 @@
   line-height: 20px;
 
 }
+.search-form__input.error::placeholder{
+  color: red;
+  
+}
 
+/* .search-form__error {
+  display: block;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+} */
 /* .search-form__border {
 
   width: 40px;
